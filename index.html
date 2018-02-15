@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html ng-app="loginModule">
+<head>
+    <meta charset="UTF-8">
+    <title>TransporTec</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Compiled and minified CSS -->
+    <script type="text/javascript" src="node_modules/sweetalert/dist/sweetalert.min.js"></script>
+    <script type="text/javascript" src="globalVars.js"></script>
+    <link rel="stylesheet" href="assets/css/CSS/style.css">
+    <link rel="stylesheet" href="lib/pnotify/pnotify.custom.min.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <!-- Angular-ui-calendar -->
+    <link rel="stylesheet" href="bower_components/fullcalendar/dist/fullcalendar.css"/>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+    <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
+    <link href="assets/css/themes/theme-blue.css" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/mediaQueries.css">
+</head>
+
+<body ng-controller="loginController">
+    <div class="acomodar">
+        <img  width="250px" top="110px" src="assets/images/TEC.130212023_std.png"/>
+    </div>
+    <div id="loginBody">
+        <div class="thumbnail">
+            <div class="login-page">
+                <div>
+                    <h2 id="fuente">Mantenimiento</h2>
+                </div>
+                <div class="form">
+                    <form class="register-form">
+                        <input type="text" placeholder="name"/>
+                        <input   type="password" placeholder="password"/>
+                        <input type="text"   placeholder="email address"/>
+                        <button >create</button>
+                        <p class="message">Already registered? <a href="#">Sign In</a></p>
+                    </form>
+                    <form class="login-form">
+                        <div>
+                            <input type="text" id="email" name="email" placeholder="username"ng-model="username"/>
+                            <input type="password" id="pass" name="pass" placeholder="password" ng-model="password"/>
+                            <button ng-click="accederLogin()">Login</button>
+                        </div>
+                        <div ng-app="mantenimientoApp">
+                            <p class="message">Not registered? <a href="#">Create an account</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+        <script src="shared/common.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+        <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+        <script type="text/javascript" src="bower_components/angular-resource/angular-resource.min.js"></script>
+        <script type="text/javascript" src="bower_components/angular-route/angular-route.min.js"></script>
+        <script type="text/javascript" src="lib/pnotify/pnotify.custom.min.js"></script>
+        <script type="text/javascript" src="lib/pnotify/angular-pnotify.js"></script>
+        <script type="text/javascript" src="lib/AngularJS/angular-base64.min.js"></script>
+        <script src="loginController.js"></script>
+    <script src="users/app.js"></script>
+        <!--<script type="text/javascript" src="appWeb/comun/notificaciones.js"></script>-->
+</body>
+</html>

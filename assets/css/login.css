@@ -1,0 +1,19 @@
+form{
+    width: 50%;
+    margin: 0 auto;
+}
+
+#LoginDiv{
+    width: 40%;
+    height: 60%;
+    margin: 0 auto;
+    background-color:white;
+    border-radius: 2px;
+    border-color:#140e39 ;
+    border-style: double;
+    margin-top: 8em;
+}
+
+#loginBody{
+    background-color: #ffffff;
+}

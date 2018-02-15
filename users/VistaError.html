@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="mantenimientoApp">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mantenimiento TEC</title>
+    <link href="../assets/css/ErrorStyle.css" rel="stylesheet">
+</head>
+
+<body class="theme-blue">
+    <section ng-controller="errorCtrl">
+        <div id="block_error">
+            <div>
+                <h2>ERROR: {{mensaje}}</h2>
+                <p>
+                    Ha ocurrido un error. Para ir a la página de Log in presione lo siguiente.
+                    <a href="http://localhost:63342/mantenimiento/index.html">LOG IN</a>.
+                </p>
+            </div>
+        </div>
+    </section>
+
+<script type="text/javascript" src="../bower_components/angular/angular.min.js"></script>
+<script type="text/javascript" src="../bower_components/angular-resource/angular-resource.min.js"></script>
+<script type="text/javascript" src="../bower_components/angular-route/angular-route.min.js"></script>
+<script src="app.js"></script>
+<script src="controllers/errorCtrl.js"></script>
+
+</body>
+
+</html>

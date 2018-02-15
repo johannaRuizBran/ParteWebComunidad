@@ -1,0 +1,231 @@
+﻿<!DOCTYPE html>
+<html ng-app="mantenimientoApp">
+
+<head>
+    <!--paginacion -->
+
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>Mantenimiento TEC</title>
+
+    <!--implementar notificacion con bootrap-->
+    <script type="text/javascript" src="../node_modules/sweetalert/dist/sweetalert.min.js"></script>
+
+    <script type="text/javascript" src="../globalVars.js"></script>
+
+
+    <!-- Favicon-->
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <!-- Angular-ui-calendar -->
+
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
+        <!-- Bootstrap Core Css -->
+    <link href="../plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Waves Effect Css -->
+    <link href="../plugins/node-waves/waves.css" rel="stylesheet" />
+
+    <!-- Animation Css -->
+    <link href="../plugins/animate-css/animate.css" rel="stylesheet" />
+
+    <!-- Preloader Css -->
+    <link href="../plugins/material-design-preloader/md-preloader.css" rel="stylesheet" />
+
+    <!-- Custom Css -->
+    <link href="../assets/css/style.css" rel="stylesheet">
+
+    <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
+    <link href="../assets/css/themes/theme-blue.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/css/mediaQueries.css">
+</head>
+
+<body class="theme-blue">
+    <!-- Page Loader -->
+    <div class="page-loader-wrapper">
+        <div class="loader">
+            <div class="md-preloader pl-size-md">
+                <svg viewbox="0 0 75 75">
+                    <circle cx="37.5" cy="37.5" r="33.5" class="pl-red" stroke-width="4" />
+                </svg>
+            </div>
+            <p>Please wait...</p>
+        </div>
+    </div>
+    <!-- #END# Page Loader -->
+    <!-- Overlay For Sidebars -->
+    <div class="overlay"></div>
+    <!-- #END# Overlay For Sidebars -->
+    <!-- Search Bar -->
+    <div class="search-bar">
+        <div class="search-icon">
+            <i class="material-icons">search</i>
+        </div>
+        <input type="text" placeholder="START TYPING...">
+        <div class="close-search">
+            <i class="material-icons">close</i>
+        </div>
+    </div>
+    <!-- #END# Search Bar -->
+    <!-- Top Bar -->
+    <nav class="navbar">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
+                <a href="javascript:void(0);" class="bars"></a>
+                <a class="navbar-brand " >
+                   <img src="../assets/images/TEC.130212023_std.png">
+                </a>
+            </div>
+        </div>
+    </nav>
+    <!-- #Top Bar -->
+    <!-- Se enlaza el controller al sidebar -->
+    <!-- en el se encuentran los datos de usuario que aparecen en el sidebar -->
+    <section ng-controller="mainCtrl">
+        <!-- Left Sidebar -->
+        <aside id="leftsidebar" class="sidebar">
+            <!-- Informacion del usuario -->
+            <div class="user-info ">
+                <div class="image ">
+                    <img src="../assets/images/user.png" width="48" height="48" alt="User" />
+                </div>
+                <div class="info-container">
+                    <!-- Menu de cierre de session -->
+                    <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{user}}</div>
+                    <div class="email">{{email}}</div>
+                    <div class="btn-group user-helper-dropdown">
+                        <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
+                        <ul class="dropdown-menu pull-right">
+                            <li>
+                                <a href="#/notificacion" onclick="closeSideBar()">
+                                    <i class="material-icons">person</i>Profile
+                                </a>
+                            </li>
+                            <li role="seperator" class="divider"></li>
+                            <li>
+                                <a href="" ng-click="cerrarSesion()">
+                                    <i class="material-icons">input</i>Sign Out
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- #User Info -->
+            <!-- Menu -->
+            <div class="menu">
+                <ul class="list">
+                    <li class="header ">MENU PRINCIPAL </li>
+                    <li class="tecTitles">
+                        <a href="#/notificacion" onclick="closeSideBar()">
+                            <i class="material-icons">notifications</i>
+                            <span>Notificaciones</span>
+                        </a>
+                    </li>
+                    <li class="tecTitles">
+                        <a href="#/user/home" onclick="closeSideBar()">
+                            <i class="material-icons">build</i>
+                            <span>Administrar Usuarios</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+            <!-- #Menu -->
+            <!-- Footer -->
+            <div class="legal">
+                <div class="copyright">
+                    &copy; 2017 <a href="javascript:void(0);">Mantenimiento TEC </a>.
+                </div>
+                <div class="version">
+                    <b>Powered by: </b>Juliana Campos y Johanna Ruiz
+                </div>
+            </div>
+            <!-- #Footer -->
+        </aside>
+        <!-- #END# Left Sidebar -->
+
+    </section>
+    <!-- Contenedor en el que se insertaran las vistas del ng-route -->
+    <section class="content" ng-view="">
+        <!--Los templates que se cargan aqui son los que se declaran en el archivo app.js -->
+    </section>
+
+    <!-- Dependencias de angular  -->
+    <script type="text/javascript" src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="../bower_components/moment/min/moment.min.js"></script>
+    <script type="text/javascript" src="../bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="../bower_components/angular-resource/angular-resource.min.js"></script>
+    <script type="text/javascript" src="../bower_components/angular-route/angular-route.min.js"></script>
+    <script type="text/javascript" src="../bower_components/ui-listView/src/"></script>
+    <!-- Funciones y variables compartidas entre madulos  -->
+    <script src="../shared/common.js"></script>
+    <!-- app Js -->
+    <script src="app.js"></script>
+    <!-- services -->
+    <script src="services.js"></script>
+    <!-- main controller Js -->
+    <script src="controllers/mainCtrl.js"></script>
+    <!-- dashboard controller Js -->
+    <script src="controllers/crearCtrl.js"></script>
+    <!-- reservationCreate controller Js -->
+    <!-- reservationCreate controller Js -->
+    <script src="controllers/editarCtrl.js"></script>
+    <!-- reservationCreate controller Js -->
+    <script src="controllers/homeCtrl.js"></script>
+    <!--sss
+    <script src="controllers/dirPagination.js"></script>-->
+
+    <script src="controllers/notificationCtrl.js"></script>
+
+    <!-- Jquery Core Js -->
+    <script src="../plugins/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core Js -->
+    <script src="../plugins/bootstrap/js/bootstrap.js"></script>
+
+
+    <!-- Select Plugin Js -->
+    <script src="../plugins/bootstrap-select/js/bootstrap-select.js"></script>
+
+    <!-- Slimscroll Plugin Js -->
+    <script src="../plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+
+    <script src="../plugins/jquery-validation/jquery.validate.js"></script>
+
+      <!-- JQuery Steps Plugin Js -->
+    <script src="../plugins/jquery-steps/jquery.steps.js"></script>
+
+    <script src="../assets/js/pages/forms/form-wizard.js"></script>
+
+
+    <!-- Waves Effect Plugin Js -->
+    <script src="../plugins/node-waves/waves.js"></script>
+
+
+
+    <!-- JQuery DataTable Css -->
+    <link href="../plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
+
+    <!-- Jquery DataTable Plugin Js -->
+    <script src="../plugins/jquery-datatable/jquery.dataTables.js"></script>
+    <script src="../plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script>
+
+    <!-- Custom Js -->
+    <script src="../assets/js/admin.js"></script>
+    <script src="../assets/js/pages/tables/jquery-datatable.js"></script>
+
+</body>
+
+</html>
