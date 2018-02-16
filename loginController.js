@@ -14,7 +14,7 @@ var app = angular.module('loginModule',["ngRoute"])
                     data:{}
                 }).then(function mySucces(response) {
                     var datos = response.data;
-                    if (datos.nombreUsuario == user && datos.contrasena == pass) {
+                    if (datos.rol == "Administrador") {
                         sessionStorage.setItem("user",datos.nombreUsuario);
                         sessionStorage.setItem("correo",datos.correo);
                         $(location).attr('href',config.mainPage);
@@ -22,7 +22,7 @@ var app = angular.module('loginModule',["ngRoute"])
                     else {
                         swal(
                             'ERROR...',
-                            'Datos inconsistentes, no se encontró al usuario!',
+                            'Datos inconsistentes, no se encontró al usuario Administrador!',
                             'error'
                         );
                     }

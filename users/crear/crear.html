@@ -1,6 +1,6 @@
 
 <section>
-    <form ng-submit="crear()">
+    <form ng-submit="crear()" class="form">
         <div class="container-fluid" >
             <div class="block-header">
                 <div class="row clearfix">
@@ -13,7 +13,6 @@
                                 <div class="body">
                                     <small>Tipo Usuario</small>
                                     <div class="body">
-
                                         <div class="row clearfix">
                                             <div class="col-sm-6">
                                                 <select ng-model="tipoUsuario" id="tipoUsuario" name="tipoUsuario" class="form-control show-tick">
@@ -26,60 +25,40 @@
                                         </div>
                                     </div>
                                     <h1 class="card-inside-title">Informacion Usuario</h1>
-                                    <div class="divCentrado">
-
-                                    </div>
                                     <div class="row clearfix">
                                         <div class="col-sm-12">
                                             <div class="form-group">
-                                                <div class="form-line">
-                                                    <label >Nombre</label>
-                                                    <input ng-model="nombre" id="nombre" name="nombre" type="text" placeholder="Nombre" class="form-control" required="">
+                                                <div>
+                                                    <label class="labelFor">Nombre</label>
+                                                    <input placeholder="Nombre" class="textbox" ng-model="nombre" id="nombre" name="nombre" type="text" required="">
                                                 </div>
-                                            </div>
-                                            <div class="form-group">
-
-                                                <div class="form-line">
-                                                    <label>Primer Apellido</label>
-                                                    <input ng-model="Apellido1" id="Apellido1" name="Apellido1" type="text" placeholder="Primer Apellido" class="form-control" required="">
+                                                <div>
+                                                    <label class="labelFor" for="apellido1">Primer Apellido</label>
+                                                    <input placeholder="Primer Apellido" class="textbox"  ng-model="Apellido1" id="Apellido1" name="Apellido1" type="text" required="">
                                                 </div>
-                                            </div>
-                                            <div class="form-group">
-
-                                                <div class="form-line">
-                                                    <label>Segundo Apellido</label>
-                                                    <input ng-model="Apellido2" id="Apellido2" name="Apellido2" type="text" placeholder="Segundo Apellido" class="form-control" required="">
-
+                                                <div>
+                                                    <label class="labelFor" for="apellido2">Segundo Apellido</label>
+                                                    <input placeholder="Segundo Apellido" class="textbox" ng-model="Apellido2" id="Apellido2" name="Apellido2" type="text" required="">
                                                 </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="form-line">
-                                                    <label>Nombre Usuario</label>
-                                                    <input ng-model="nombreUsuario" id="nombreUsuario" name="nombreUsuario" type="text" placeholder="nombreUsuario" class="form-control" required="">
+                                                <div>
+                                                    <label class="labelFor" for="nombreUsuario">Nombre Usuario</label>
+                                                    <input placeholder="Nombre de Usuario" class="textbox" ng-model="nombreUsuario" id="nombreUsuario" name="nombreUsuario" type="text" required="">
                                                 </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="form-line">
-                                                    <label>Contraseña</label>
-                                                    <input ng-model="contrasena" id="contrasena" name="contrasena" type="password" placeholder="Contraseña" class="form-control" required="">
+                                                <div>
+                                                    <label class="labelFor" for="contrasena">Contraseña</label>
+                                                    <input placeholder="Contraseña" class="textbox" ng-model="contrasena" id="contrasena" name="contrasena" type="password" required="">
                                                 </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="form-line">
-                                                    <label>Confirmar contraseña</label>
-                                                    <input ng-model="confirmarContrasena" id="confirmarContrasena" name="confirmarContrasena" type="password" placeholder="Confirmar contraseña " class="form-control" required="">
+                                                <div>
+                                                    <label class="labelFor" for="confirmarContrasena">Confirmar contraseña</label>
+                                                    <input placeholder="Confirmar Contraseña" class="textbox" ng-model="confirmarContrasena" id="confirmarContrasena" name="confirmarContrasena" type="password" required="">
                                                 </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="form-line">
-                                                    <label>Telefono</label>
-                                                    <input ng-model="telefono"  id="telefono" name="telefono" type="text" placeholder="Telefono " class="form-control" required="">
+                                                <div>
+                                                    <label class="labelFor" for="telefono">Telefono</label>
+                                                    <input placeholder="Teléfono" class="textbox" ng-model="telefono"  id="telefono" name="telefono" type="text" required="">
                                                 </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="form-line">
-                                                    <label>Correo</label>
-                                                    <input ng-model="correo" id="correo" name="correo" type="text" placeholder="Correo " class="form-control" required="" ng-model="correoVar">
+                                                <div>
+                                                    <label class="labelFor" for="correo">Correo</label>
+                                                    <input placeholder="Correo" class="textbox" ng-model="correo" id="correo" name="correo" type="text" required="">
                                                 </div>
                                             </div>
                                         </div>

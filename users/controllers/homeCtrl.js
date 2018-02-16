@@ -5,20 +5,7 @@ angular.module('mantenimientoApp')
         $scope.pageSize = 5;
         $scope.pages = [];
 
-        $scope.user = sessionStorage.getItem("user");
-        if ($scope.user == null || $scope.user == "null"){
-            $(location).attr('href',config.errorPage);
-        }
-        $scope.valorSelect = "N";
-        var tipoUsuario = "N";
-        var ur = config.ip+"Usuarios/obtenerListaUsuarios/" + tipoUsuario;
-        console.log("ur: "+ur);
-        $http({
-            method: "GET",
-            url: ur
-        }).success(function (result) {
-            $scope.personas = result;
-
+        function paginacion () {
             var usuarios=$scope.personas;
             $scope.pages.length = 0;
             var ini = $scope.currentPage - 4;
@@ -41,10 +28,26 @@ angular.module('mantenimientoApp')
                     no: i
                 });
             }
-
             if ($scope.currentPage >= $scope.pages.length)
                 $scope.currentPage = $scope.pages.length - 1;
+        };
 
+
+
+        $scope.user = sessionStorage.getItem("user");
+        if ($scope.user == null || $scope.user == "null"){
+            $(location).attr('href',config.errorPage);
+        }
+        $scope.valorSelect = "N";
+        var tipoUsuario = "N";
+        var ur = config.ip+"Usuarios/obtenerListaUsuarios/" + tipoUsuario;
+        console.log("ur: "+ur);
+        $http({
+            method: "GET",
+            url: ur
+        }).success(function (result) {
+            $scope.personas = result;
+            paginacion();
         }).error(function(error){
             swal(
                 'ERROR...',
@@ -53,8 +56,9 @@ angular.module('mantenimientoApp')
             );
         });
 
-        $scope.mostrarLista = function() {
 
+
+        $scope.mostrarLista = function() {
             tipoUsuario = $scope.valorSelect;
             var ur = config.ip+"Usuarios/obtenerListaUsuarios/" + tipoUsuario;
             console.log("ur: "+ur);
@@ -71,7 +75,9 @@ angular.module('mantenimientoApp')
                 );
             });
         };
-        
+
+
+
         $scope.eliminar = function eliminar(valorEliminar) {
             console.log("valor Eliminar: "+valorEliminar);
 
@@ -86,6 +92,23 @@ angular.module('mantenimientoApp')
                     'Presione el botón para continuar!',
                     'success'
                 );
+                tipoUsuario = $scope.valorSelect;
+                var ur = config.ip+"Usuarios/obtenerListaUsuarios/" + tipoUsuario;
+                console.log("ur: "+ur);
+                $http({
+                    method: "GET",
+                    url: ur,
+                }).success(function (result) {
+                    $scope.personas = result;
+                    paginacion();
+                }).error(function(error){
+                    swal(
+                        'ERROR...',
+                        'No se ha podido acceder a la base de datos correctamente!',
+                        'error'
+                    );
+                });
+
             }).error(function(error){
                 swal(
                     'ERROR...',
@@ -94,22 +117,8 @@ angular.module('mantenimientoApp')
                 );
             });
 
-            //obtener
-            var ur = config.ip+"Usuarios/obtenerListaUsuarios/" + tipoUsuario;
-            console.log("ur: "+ur);
-            $http({
-                method: "GET",
-                url: ur
-            }).success(function (result) {
-                swal(
-                    'Se ha realizado exitosamente!',
-                    'Presione el botón para continuar!',
-                    'success'
-                );
-                $scope.personas = result;
-            }).error(function(error){
-                alert("No ");
-            });
+
+
         };
 
         $scope.setPage = function(index) {
