@@ -29,5 +29,8 @@ app.config(['$routeProvider',function($routeProvider)
                 templateUrl:'home/home.html',
                 controller: 'homeCtrl'
             })
+            .when("/noHayElementos",{
+                templateUrl:'noHayArchivos.html'
+            })
     }
 ]);

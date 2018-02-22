@@ -16,6 +16,9 @@ angular.module('mantenimientoApp')
             url: ur
         }).success(function (result) {
             $scope.personas = result;
+            if($scope.personas.length == 0){
+                window.location.href = ('#/noHayElementos');
+            }
 
         }).error(function(error){
             swal(

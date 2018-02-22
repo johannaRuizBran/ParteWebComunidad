@@ -7909,6 +7909,13 @@ html.ie11 .bs-searchbox .form-control {
   color: #9c9;
 }
 
+.centerNoArchivos{
+  text-align: center;
+  margin-top: 10%;
+  height:500px;
+  overflow-y: auto;
+}
+
 .noticacionBody{
   height:800px;
   overflow-y: auto;
